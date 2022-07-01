@@ -26,29 +26,29 @@
             user.put("apellidos", apellidos);
             user.put("estado", estado);
 
-            if (pNombre != null) {
+            if (pNombre != null || apellidos != null) {
                 //Enviamos un Post para agregar el json construido en user
                 UsoRestApi.postUsuario("http://localhost:8080/postUsuario/", user, "POST");
-                
-                String json = UsoRestApi.restUsuario("http://localhost:8080/getUsuarios", "GET");
-                Gson gson = new Gson();
-                UsuariosEntity[] userJson = gson.fromJson(json, UsuariosEntity[].class);
-                String thead = "<table class='w3-table-all'>"
-                        + "<thead> "
-                        + "   <tr class='w3-light-grey w3-hover-red'> "
-                        + "     <th>Identificador</th> "
-                        + "     <th>Nombre</th> "
-                        + "     <th>Apellidos</th>"
-                        + "     <th>Estado</th>"
-                        + "   </tr>"
-                        + "</thead>";
-                out.print(thead);
-
-                for (Object u : userJson) {
-                    out.println(u);
-                }
-                out.print("</table>");
             }
+            
+            String json = UsoRestApi.restUsuario("http://localhost:8080/getUsuarios", "GET");
+            Gson gson = new Gson();
+            UsuariosEntity[] userJson = gson.fromJson(json, UsuariosEntity[].class);
+            String thead = "<table class='w3-table-all'>"
+                    + "<thead> "
+                    + "   <tr class='w3-light-grey w3-hover-red'> "
+                    + "     <th>Identificador</th> "
+                    + "     <th>Nombre</th> "
+                    + "     <th>Apellidos</th>"
+                    + "     <th>Estado</th>"
+                    + "   </tr>"
+                    + "</thead>";
+            out.print(thead);
+
+            for (Object u : userJson) {
+                out.println(u);
+            }
+            out.print("</table>");
 
 
         %>
