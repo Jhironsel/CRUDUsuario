@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+    </head>
+    <body>
+        <form action="ListadoUsuario.jsp" method="POST" style="border:1px solid #ccc">
+            <div class="container">
+                <h1>Registro de usuario</h1>
+                <p>Porfavor llene los siguientes campos.</p>
+                <hr>
+
+                <input required placeholder="Ingrese Nombre:" class="w3-input" 
+                       type="text" name="txtPNombre" id="txtPNombre" value="" /><br>
+
+                <input required placeholder="Ingrese Apellidos:" class="w3-input" 
+                       type="text" name="txtApellidos" id="txtApellidos" value="" /><br>
+
+                <label for="estado"><b>Estado:</b> </label>
+                <input class="w3-check" type="checkbox" name="estado" id="estado" /><br>
+                
+                <br>
+                <input class="w3-button w3-white w3-border w3-border-red w3-round-large" 
+                       type="submit" value="Registrar">
+            </div>
+            <br>
+            <a href="ListadoUsuario.jsp" target="target">Ir a lista de Usuarios</a>
+        </form>
+    </body>
+</html>
